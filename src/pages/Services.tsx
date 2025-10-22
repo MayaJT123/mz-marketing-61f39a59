@@ -65,8 +65,8 @@ const Services = () => {
     },
     {
       icon: PenTool,
-      title: 'Content Creation',
-      description: 'Engaging content that tells your brand story',
+      title: t('services.content'),
+      description: t('services.content.desc'),
       details: [
         'Blog posts and articles',
         'Website copywriting',
@@ -76,8 +76,8 @@ const Services = () => {
     },
     {
       icon: Megaphone,
-      title: 'Paid Advertising',
-      description: 'Strategic ad campaigns that maximize ROI',
+      title: t('services.paid'),
+      description: t('services.paid.desc'),
       details: [
         'Google Ads management',
         'Social media advertising',
@@ -87,8 +87,8 @@ const Services = () => {
     },
     {
       icon: Mail,
-      title: 'Email Marketing',
-      description: 'Targeted campaigns that convert',
+      title: t('services.email'),
+      description: t('services.email.desc'),
       details: [
         'Email strategy and planning',
         'Newsletter design and content',
@@ -98,8 +98,8 @@ const Services = () => {
     },
     {
       icon: Video,
-      title: 'Video Marketing',
-      description: 'Compelling video content for all platforms',
+      title: t('services.video'),
+      description: t('services.video.desc'),
       details: [
         'Video production and editing',
         'YouTube channel optimization',
@@ -120,7 +120,7 @@ const Services = () => {
             {t('services.title')}
           </h1>
           <p className="text-xl max-w-3xl mx-auto animate-slide-up">
-            Comprehensive digital marketing solutions tailored to your business goals
+            {t('services.subtitle')}
           </p>
         </div>
       </section>
@@ -157,13 +157,13 @@ const Services = () => {
       {/* Process Section */}
       <section className="py-20 bg-gradient-subtle">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">Our Process</h2>
+          <h2 className="text-4xl font-bold text-center mb-12">{t('services.process')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
-              { step: '01', title: 'Discovery', desc: 'Understanding your goals and challenges' },
-              { step: '02', title: 'Strategy', desc: 'Crafting a customized marketing plan' },
-              { step: '03', title: 'Execution', desc: 'Implementing campaigns with precision' },
-              { step: '04', title: 'Optimization', desc: 'Continuous improvement and growth' },
+              { step: '01', title: t('process.step1'), desc: t('process.step1.desc') },
+              { step: '02', title: t('process.step2'), desc: t('process.step2.desc') },
+              { step: '03', title: t('process.step3'), desc: t('process.step3.desc') },
+              { step: '04', title: t('process.step4'), desc: t('process.step4.desc') },
             ].map((item, index) => (
               <div
                 key={index}
@@ -182,12 +182,12 @@ const Services = () => {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
+          <h2 className="text-4xl font-bold mb-6">{t('services.cta.title')}</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let's discuss how our services can help your business grow
+            {t('services.cta.subtitle')}
           </p>
           <Link to="/contact">
-            <Button size="lg">Contact Us Today</Button>
+            <Button size="lg">{t('services.cta.button')}</Button>
           </Link>
         </div>
       </section>

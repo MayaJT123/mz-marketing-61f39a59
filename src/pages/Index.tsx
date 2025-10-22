@@ -53,19 +53,19 @@ const Index = () => {
 
   const testimonials = [
     {
-      name: 'Sarah Johnson',
-      company: 'Tech Innovators',
-      text: 'MZ Marketing transformed our digital presence. Their strategic approach and creative campaigns delivered outstanding results.',
+      name: t('testimonial1.name'),
+      company: t('testimonial1.company'),
+      text: t('testimonial1.text'),
     },
     {
-      name: 'Michael Chen',
-      company: 'Global Ventures',
-      text: 'Professional, creative, and results-driven. They understood our vision and brought it to life beautifully.',
+      name: t('testimonial2.name'),
+      company: t('testimonial2.company'),
+      text: t('testimonial2.text'),
     },
     {
-      name: 'Emma Rodriguez',
-      company: 'StartUp Hub',
-      text: 'Working with MZ Marketing was a game-changer for our brand. Highly recommend their expertise!',
+      name: t('testimonial3.name'),
+      company: t('testimonial3.company'),
+      text: t('testimonial3.text'),
     },
   ];
 
@@ -143,7 +143,7 @@ const Index = () => {
           </div>
           <div className="text-center mt-12">
             <Link to="/services">
-              <Button size="lg">View All Services</Button>
+              <Button size="lg">{t('services.viewall')}</Button>
             </Link>
           </div>
         </div>

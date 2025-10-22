@@ -26,7 +26,7 @@ const Contact = () => {
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: 'Error',
-        description: 'Please fill in all required fields',
+        description: t('contact.error.required'),
         variant: 'destructive',
       });
       return;
@@ -37,7 +37,7 @@ const Contact = () => {
     if (!emailRegex.test(formData.email)) {
       toast({
         title: 'Error',
-        description: 'Please enter a valid email address',
+        description: t('contact.error.email'),
         variant: 'destructive',
       });
       return;
@@ -45,8 +45,8 @@ const Contact = () => {
 
     // Success message
     toast({
-      title: 'Success!',
-      description: 'Your message has been sent. We\'ll get back to you soon!',
+      title: t('contact.success.title'),
+      description: t('contact.success.desc'),
     });
 
     // Reset form
@@ -65,19 +65,19 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email',
+      title: t('contact.info.email'),
       value: 'info@mzmarketing.com',
       link: 'mailto:info@mzmarketing.com',
     },
     {
       icon: Phone,
-      title: 'Phone',
+      title: t('contact.info.phone'),
       value: '+1 (555) 123-4567',
       link: 'tel:+15551234567',
     },
     {
       icon: MapPin,
-      title: 'Location',
+      title: t('contact.info.location'),
       value: '123 Marketing Street, Digital City',
       link: '#',
     },
@@ -116,7 +116,7 @@ const Contact = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="John Doe"
+                      placeholder={t('contact.form.placeholder.name')}
                       required
                     />
                   </div>
@@ -131,7 +131,7 @@ const Contact = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john@example.com"
+                      placeholder={t('contact.form.placeholder.email')}
                       required
                     />
                   </div>
@@ -147,13 +147,13 @@ const Contact = () => {
                       onChange={handleChange}
                       className="w-full px-3 py-2 border rounded-md bg-background"
                     >
-                      <option value="">Select a service</option>
-                      <option value="digital">Digital Marketing</option>
-                      <option value="social">Social Media Management</option>
-                      <option value="branding">Brand Development</option>
-                      <option value="seo">SEO & SEM</option>
-                      <option value="content">Content Creation</option>
-                      <option value="ads">Paid Advertising</option>
+                      <option value="">{t('contact.form.select')}</option>
+                      <option value="digital">{t('services.digital')}</option>
+                      <option value="social">{t('services.social')}</option>
+                      <option value="branding">{t('services.branding')}</option>
+                      <option value="seo">{t('services.seo')}</option>
+                      <option value="content">{t('services.content')}</option>
+                      <option value="ads">{t('services.paid')}</option>
                     </select>
                   </div>
 
@@ -166,7 +166,7 @@ const Contact = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us about your project..."
+                      placeholder={t('contact.form.placeholder.message')}
                       rows={6}
                       required
                     />
@@ -182,9 +182,9 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8 animate-slide-in-right">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
+                <h2 className="text-3xl font-bold mb-6">{t('contact.getin')}</h2>
                 <p className="text-muted-foreground text-lg mb-8">
-                  We'd love to hear from you. Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.
+                  {t('contact.getin.desc')}
                 </p>
               </div>
 
@@ -211,9 +211,9 @@ const Contact = () => {
 
               <Card className="bg-gradient-hero text-primary-foreground">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">Book a Free Consultation</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t('contact.consultation')}</h3>
                   <p className="opacity-90">
-                    Schedule a 30-minute call to discuss your marketing goals and how we can help you achieve them.
+                    {t('contact.consultation.desc')}
                   </p>
                 </CardContent>
               </Card>

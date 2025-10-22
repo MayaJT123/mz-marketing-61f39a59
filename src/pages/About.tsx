@@ -10,23 +10,23 @@ const About = () => {
   const values = [
     {
       icon: Target,
-      title: 'Our Mission',
-      description: 'To empower brands with innovative digital strategies that drive measurable growth and success.',
+      title: t('about.mission'),
+      description: t('about.mission.desc'),
     },
     {
       icon: Heart,
-      title: 'Our Values',
-      description: 'Integrity, creativity, excellence, and client success are at the heart of everything we do.',
+      title: t('about.values'),
+      description: t('about.values.desc'),
     },
     {
       icon: Lightbulb,
-      title: 'Our Approach',
-      description: 'Data-driven strategies combined with creative thinking to deliver exceptional results.',
+      title: t('about.approach'),
+      description: t('about.approach.desc'),
     },
     {
       icon: TrendingUp,
-      title: 'Our Vision',
-      description: 'To be the leading force in transforming how businesses connect with their audiences.',
+      title: t('about.vision'),
+      description: t('about.vision.desc'),
     },
   ];
 
@@ -50,16 +50,16 @@ const About = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-8 text-center">Our Story</h2>
+            <h2 className="text-4xl font-bold mb-8 text-center">{t('about.story')}</h2>
             <div className="space-y-6 text-lg text-muted-foreground">
               <p>
-                Founded with a passion for digital innovation, MZ Marketing began as a vision to help businesses thrive in the digital age. What started as a small team of marketing enthusiasts has grown into a full-service digital marketing agency trusted by brands worldwide.
+                {t('about.story.p1')}
               </p>
               <p>
-                Our journey has been driven by one constant: a commitment to delivering exceptional results for our clients. We combine creative thinking with data-driven strategies to craft marketing solutions that not only look great but deliver measurable ROI.
+                {t('about.story.p2')}
               </p>
               <p>
-                Today, we work with businesses of all sizes, from startups to established enterprises, helping them navigate the complex digital landscape and achieve their growth objectives. Our team brings together expertise in digital marketing, branding, content creation, and analytics to provide comprehensive solutions.
+                {t('about.story.p3')}
               </p>
             </div>
           </div>
@@ -69,7 +69,7 @@ const About = () => {
       {/* Values Section */}
       <section className="py-20 bg-gradient-subtle">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">What Drives Us</h2>
+          <h2 className="text-4xl font-bold text-center mb-12">{t('about.drives')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {values.map((value, index) => (
               <Card
@@ -91,13 +91,13 @@ const About = () => {
       {/* Team Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-8">Our Team</h2>
+          <h2 className="text-4xl font-bold text-center mb-8">{t('about.team')}</h2>
           <p className="text-xl text-center text-muted-foreground max-w-3xl mx-auto mb-12">
-            Behind MZ Marketing is a diverse team of creative thinkers, strategic planners, and digital experts who are passionate about helping your business succeed.
+            {t('about.team.subtitle')}
           </p>
           <div className="text-center">
             <p className="text-lg text-muted-foreground">
-              Our team combines years of experience in marketing, design, analytics, and client relations to deliver comprehensive solutions tailored to your unique needs.
+              {t('about.team.desc')}
             </p>
           </div>
         </div>
