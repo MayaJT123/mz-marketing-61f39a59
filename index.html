@@ -26,6 +26,17 @@
 
   <body>
     <div id="root"></div>
+    
+    <!-- CRITICAL: Hidden Netlify Form for detection -->
+    <!-- This MUST be in your HTML for Netlify to detect the form -->
+    <!-- Keep this even though it seems redundant - Netlify needs it! -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input type="text" name="service" />
+    </form>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
