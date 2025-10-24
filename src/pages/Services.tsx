@@ -24,10 +24,10 @@ const Services = () => {
       title: t('services.digital'),
       description: t('services.digital.desc'),
       details: [
-        'Comprehensive digital strategy development',
-        'Multi-channel campaign management',
-        'Performance tracking and optimization',
-        'Digital transformation consulting',
+        t('services.digital.desc0'),
+        t('services.digital.desc1'),
+        t('services.digital.desc2'),
+        t('services.digital.desc3'),
       ],
     },
     {
@@ -35,10 +35,10 @@ const Services = () => {
       title: t('services.social'),
       description: t('services.social.desc'),
       details: [
-        'Content creation and scheduling',
-        'Community engagement and management',
-        'Influencer partnerships',
-        'Social media advertising',
+        t('services.social.desc1'),
+        t('services.social.desc2'),
+        t('services.social.desc4'),
+        t('services.social.desc5'),
       ],
     },
     {
@@ -46,10 +46,10 @@ const Services = () => {
       title: t('services.branding'),
       description: t('services.branding.desc'),
       details: [
-        'Brand identity design',
-        'Brand strategy and positioning',
-        'Visual identity systems',
-        'Brand guidelines development',
+        t('services.branding.desc1'),
+        t('services.branding.desc2'),
+        t('services.branding.desc3'),
+        t('services.branding.desc4'),
       ],
     },
     {
@@ -57,10 +57,10 @@ const Services = () => {
       title: t('services.seo'),
       description: t('services.seo.desc'),
       details: [
-        'Keyword research and optimization',
-        'Technical SEO audits',
-        'Link building strategies',
-        'Local SEO optimization',
+        t('services.seo.desc1'),
+        t('services.seo.desc2'),
+        t('services.seo.desc3'),
+        t('services.seo.desc4'),
       ],
     },
     {
@@ -68,10 +68,10 @@ const Services = () => {
       title: t('services.content'),
       description: t('services.content.desc'),
       details: [
-        'Blog posts and articles',
-        'Website copywriting',
-        'Video scripts and storyboards',
-        'Email newsletter content',
+        t('services.content.desc1'),
+        t('services.content.desc2'),
+        t('services.content.desc3'),
+        t('services.content.desc4'),
       ],
     },
     {
@@ -79,10 +79,10 @@ const Services = () => {
       title: t('services.paid'),
       description: t('services.paid.desc'),
       details: [
-        'Google Ads management',
-        'Social media advertising',
-        'Display and banner ads',
-        'Retargeting campaigns',
+        t('services.paid.desc1'),
+        t('services.paid.desc2'),
+        t('services.paid.desc3'),
+        t('services.paid.desc4'),
       ],
     },
     {
@@ -90,10 +90,10 @@ const Services = () => {
       title: t('services.email'),
       description: t('services.email.desc'),
       details: [
-        'Email strategy and planning',
-        'Newsletter design and content',
-        'Automation workflows',
-        'A/B testing and optimization',
+        t('services.email.desc1'),
+        t('services.email.desc2'),
+        t('services.email.desc3'),
+        t('services.email.desc4'),
       ],
     },
     {
@@ -101,10 +101,10 @@ const Services = () => {
       title: t('services.video'),
       description: t('services.video.desc'),
       details: [
-        'Video production and editing',
-        'YouTube channel optimization',
-        'Video advertising campaigns',
-        'Animation and motion graphics',
+        t('services.video.desc1'),
+        t('services.video.desc2'),
+        t('services.video.desc3'),
+        t('services.video.desc4'),
       ],
     },
   ];

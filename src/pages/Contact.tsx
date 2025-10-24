@@ -97,8 +97,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: t('contact.info.email'),
-      value: 'jabritabrizimaya@gmail.com',
-      link: 'mailto:jabritabrizimaya@gmail.com',
+      value: 'Malklojen@gmail.com',
+      link: 'mailto:Malklojen@gmail.com',
     },
     {
       icon: Phone,
@@ -109,7 +109,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: t('contact.info.location'),
-      value: '123 Marketing Street, Digital City',
+      value: 'Hura, Israel',
       link: '#',
     },
   ];
