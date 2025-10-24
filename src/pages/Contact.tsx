@@ -19,10 +19,11 @@ const Contact = () => {
     service: '',
   });
 
-  // ✅ Updated handleSubmit for Netlify Forms
+  // ✅ Netlify-enabled form submit handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Simple validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: 'Error',
@@ -120,18 +121,28 @@ const Contact = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            
+
             {/* Contact Form */}
             <Card className="animate-slide-in-left">
               <CardContent className="p-8">
+
+                {/* 👇 Hidden static form for Netlify detection (do NOT remove) */}
+                <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+                  <input type="text" name="name" />
+                  <input type="email" name="email" />
+                  <textarea name="message"></textarea>
+                  <input type="text" name="service" />
+                </form>
+
+                {/* 👇 Actual visible contact form */}
                 <form
                   name="contact"
                   method="POST"
                   data-netlify="true"
+                  data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
                   className="space-y-6"
                 >
-                  {/* Hidden input required for Netlify */}
                   <input type="hidden" name="form-name" value="contact" />
 
                   <div>
