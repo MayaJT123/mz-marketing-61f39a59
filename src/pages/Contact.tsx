@@ -18,8 +18,16 @@ const Contact = () => {
     message: '',
     service: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // ✅ Netlify-enabled form submit handler
+  // Netlify form encoding helper
+  const encode = (data: Record<string, string>) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
+  // Netlify-enabled form submit handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -43,14 +51,16 @@ const Contact = () => {
       return;
     }
 
+    setIsSubmitting(true);
+
     try {
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
+        body: encode({
           'form-name': 'contact',
           ...formData,
-        }).toString(),
+        }),
       });
 
       if (response.ok) {
@@ -60,14 +70,17 @@ const Contact = () => {
         });
         setFormData({ name: '', email: '', message: '', service: '' });
       } else {
-        throw new Error('Failed to send message');
+        throw new Error('Form submission failed');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       toast({
         title: 'Error',
         description: 'Failed to send message. Please try again later.',
         variant: 'destructive',
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -126,7 +139,7 @@ const Contact = () => {
             <Card className="animate-slide-in-left">
               <CardContent className="p-8">
 
-                {/* 👇 Hidden static form for Netlify detection (do NOT remove) */}
+                {/* Hidden static form for Netlify detection (REQUIRED - do NOT remove) */}
                 <form name="contact" netlify netlify-honeypot="bot-field" hidden>
                   <input type="text" name="name" />
                   <input type="email" name="email" />
@@ -134,7 +147,7 @@ const Contact = () => {
                   <input type="text" name="service" />
                 </form>
 
-                {/* 👇 Actual visible contact form */}
+                {/* Actual visible contact form */}
                 <form
                   name="contact"
                   method="POST"
@@ -144,6 +157,9 @@ const Contact = () => {
                   className="space-y-6"
                 >
                   <input type="hidden" name="form-name" value="contact" />
+                  
+                  {/* Honeypot field for spam protection */}
+                  <input type="hidden" name="bot-field" />
 
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -156,6 +172,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder={t('contact.form.placeholder.name')}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -171,6 +188,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder={t('contact.form.placeholder.email')}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -184,6 +202,7 @@ const Contact = () => {
                       value={formData.service}
                       onChange={handleChange}
                       className="w-full px-3 py-2 border rounded-md bg-background"
+                      disabled={isSubmitting}
                     >
                       <option value="">{t('contact.form.select')}</option>
                       <option value="digital">{t('services.digital')}</option>
@@ -207,11 +226,17 @@ const Contact = () => {
                       placeholder={t('contact.form.placeholder.message')}
                       rows={6}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    {t('contact.send')}
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : t('contact.send')}
                   </Button>
                 </form>
               </CardContent>

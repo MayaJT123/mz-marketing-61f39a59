@@ -1,0 +1,35 @@
+# Netlify Configuration File
+# Place this file in the root of your project
+
+[build]
+  # Build command (adjust based on your package.json scripts)
+  command = "npm run build"
+  
+  # Directory where your build output goes (adjust if different)
+  publish = "dist"
+  
+  # Set environment to production
+  environment = { NODE_VERSION = "18" }
+
+# Form detection and handling
+[[plugins]]
+  package = "@netlify/plugin-forms"
+
+# Redirect rules for SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Form notifications (optional - configure in Netlify dashboard)
+# You can also set up email notifications in the Netlify UI:
+# Site Settings > Forms > Form notifications
+
+# Headers for security (optional but recommended)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
