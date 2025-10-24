@@ -19,10 +19,10 @@ const Contact = () => {
     service: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // ✅ Updated handleSubmit for Netlify Forms
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Basic validation
+
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: 'Error',
@@ -32,7 +32,6 @@ const Contact = () => {
       return;
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       toast({
@@ -43,14 +42,32 @@ const Contact = () => {
       return;
     }
 
-    // Success message
-    toast({
-      title: t('contact.success.title'),
-      description: t('contact.success.desc'),
-    });
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'contact',
+          ...formData,
+        }).toString(),
+      });
 
-    // Reset form
-    setFormData({ name: '', email: '', message: '', service: '' });
+      if (response.ok) {
+        toast({
+          title: t('contact.success.title'),
+          description: t('contact.success.desc'),
+        });
+        setFormData({ name: '', email: '', message: '', service: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to send message. Please try again later.',
+        variant: 'destructive',
+      });
+    }
   };
 
   const handleChange = (
@@ -73,7 +90,7 @@ const Contact = () => {
       icon: Phone,
       title: t('contact.info.phone'),
       value: '+972502122987',
-      link: 'tel:++972502122987',
+      link: 'tel:+972502122987',
     },
     {
       icon: MapPin,
@@ -103,10 +120,20 @@ const Contact = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            
             {/* Contact Form */}
             <Card className="animate-slide-in-left">
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                >
+                  {/* Hidden input required for Netlify */}
+                  <input type="hidden" name="form-name" value="contact" />
+
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
                       {t('contact.name')} *
@@ -211,7 +238,9 @@ const Contact = () => {
 
               <Card className="bg-gradient-hero text-primary-foreground">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{t('contact.consultation')}</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {t('contact.consultation')}
+                  </h3>
                   <p className="opacity-90">
                     {t('contact.consultation.desc')}
                   </p>
