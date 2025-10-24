@@ -66,14 +66,14 @@ const Contact = () => {
     {
       icon: Mail,
       title: t('contact.info.email'),
-      value: 'info@mzmarketing.com',
-      link: 'mailto:info@mzmarketing.com',
+      value: 'jabritabrizimaya@gmail.com',
+      link: 'mailto:jabritabrizimaya@gmail.com',
     },
     {
       icon: Phone,
       title: t('contact.info.phone'),
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: '+972502122987',
+      link: 'tel:++972502122987',
     },
     {
       icon: MapPin,
