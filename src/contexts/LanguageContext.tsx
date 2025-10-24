@@ -440,11 +440,11 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('ar');
 
   useEffect(() => {
     // Set RTL for Arabic and Hebrew
-    document.documentElement.dir = language === 'ar' || language === 'he' ? 'rtl' : 'ltr';
+    document.documentElement.dir = language === 'en' || language === 'he' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
   }, [language]);
 

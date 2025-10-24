@@ -109,7 +109,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: t('contact.info.location'),
-      value: 'Hura, Israel',
+      value: 'Hura,Israel',
       link: '#',
     },
   ];
