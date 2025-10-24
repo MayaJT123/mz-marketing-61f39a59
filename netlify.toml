@@ -11,19 +11,14 @@
   # Set environment to production
   environment = { NODE_VERSION = "18" }
 
-# Form detection and handling
-[[plugins]]
-  package = "@netlify/plugin-forms"
+# Netlify Forms work automatically without a plugin!
+# The plugin is only needed for advanced features
 
 # Redirect rules for SPA (Single Page Application)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Form notifications (optional - configure in Netlify dashboard)
-# You can also set up email notifications in the Netlify UI:
-# Site Settings > Forms > Form notifications
 
 # Headers for security (optional but recommended)
 [[headers]]
